@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Main page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <script src='main.js'></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        body{
+            margin:0 ;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .blur
+        {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.2));
+        }
+        .container{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            animation: animate 25s ease-in-out infinite;
+            background-size: 100% 100vh;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .header
+        {
+            width: 100%;
+            height: 100vh;
+        }
+        nav{
+            width: 100%;
+            height: 15vh;
+            background: rgba(0,0,0,.2);
+            color: white;;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+        nav .logo{
+            width: 25%;
+            text-align: center;
+        }
+        nav .menu{
+            width: 40%;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav .menu a{
+            width: 25%;
+            text-decoration: none;
+            color: white;
+        }
+        nav .menu a:hover{
+            color: #00b894;
+        }
+        main{
+            width: 100%;
+            height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        section h3{
+            font-size: 35px;
+            font-weight: 200;
+            letter-spacing: 3px;
+            text-shadow: 8px 8px 10px black;
+        }
+        section h1{
+            margin: 30px 0 20px 0;
+            font-size: 55px;
+            font-weight: 700;
+            text-shadow: 8px 8px 10px black;
+            text-transform: uppercase;
+        }
+        section p{
+            font-size: 25px;
+            word-spacing: 2px;
+            margin-bottom: 25px;
+            text-shadow: 4px 4px 5px black;
+        }
+        section a{
+            padding: 12px 30px;
+            border-radius: 4px;
+            outline: none;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all .5s ease;
+        }
+        section .btntwo{
+            background:#00b894;
+            color: #fff;
+            padding: 15px 10px;
+        }
+        section .btntwo:hover{
+            background:#fff;
+            color: #000;
+        }
+
+        @keyframes animate {
+            0%,100%{
+                background-image:  url(taj.jpg);
+            }
+            25%{
+                background-image:  url(golden\ temple.jpg);
+            }
+            50%{
+                background-image:  url(india\ gate.jpg);
+            }
+            75%{
+                background-image:  url(hawa\ mahal.jpg);
+            }
+        }
+        .change_content::after{
+            content: '';
+            animation: changetext 25s infinite linear;
+            color: #00b894;
+        }
+        @keyframes changetext{
+            0%,100%{
+                content: "Taj Mahal";
+            }
+            25%{
+                content: "Golden Temple";
+            }
+            50%
+            {
+                content: "India Gate";
+            }
+            75%{
+                content: "Hawa Mahal";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blur">
+            <header>
+                <nav>
+                    <div class="logo">
+                        <h1 class="">Mera Bharat</h1>
+                    </div>
+                    <div class="menu">
+                        <a href="#">Home</a>
+                        <a href="/gallery" target="_blank">Gallery</a>
+                        <a href="/contact" target="_blank">Want us to reach you</a>
+                        <a href="/travel" target="_blank">Why travel advisor</a>
+                    </div>
+                </nav>
+                <main>
+                    <section>
+                        <h3>Welcome To India</h3>
+                        <h1>Do come & Visit <span class="change_content"></span></h1>
+                        <p>"India once is not enough"</p>
+                        <a href="/signup" class="btntwo" target="_blank">Sign-in / Signup</a>
+                    </section>
+                </main>
+            </header>
+        </div>
+    </div>
+</body>
+</html>

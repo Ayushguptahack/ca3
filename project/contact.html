@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(#A03AFD,#23CDF9);
+        }
+
+        .container{
+            width: 50%;
+            height: 70%;
+            background: rgba(51, 48, 48,.8);
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .container h1{
+            color:darkgrey;
+            transition: .3s;
+        }
+        .container:hover h1{
+            color: white;
+            font-size: 50px;
+        }
+        .heading-cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 20%;
+        }
+        .form-cont{
+            width: 100%;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+        }
+        .form-align{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction:column;
+        }
+        .name-cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            width: 100%;
+            position: relative;
+        }
+        .email-cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            width: 100%;
+            position: relative;
+        }
+        .btn-cont{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        .form-align span{
+            color: grey;
+            position: absolute;
+            font-weight: bold;
+            font-size: 20px;
+            left: 10%;
+            transition: .2s;
+        }
+        .form-align input{
+            height:30px;
+            text-decoration: none;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid gray;
+            width: 80%;
+            outline: none;
+            color: white;
+        }
+        .form-align select{
+            padding:5px;
+            outline: none;
+            border:none;
+            position: absolute;
+            left:50%;
+            width: 170px;
+            text-decoration: none;
+            border: 2px solid gray;
+            font-size:20px;
+        }
+
+        .btn-cont button{
+            position: relative;
+            font-family: sans-serif;
+			text-transform: uppercase;
+			font-size: 24px;
+			letter-spacing: 4px;
+            width:200px;
+            height:50px;
+            font-weight: bolder;
+            outline: none;
+            border: none;
+            color: white;
+            background: transparent;
+            transition:.2s;
+        }
+        
+        .btn-cont label{
+            color: rgb(31, 205, 228);
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: bolder;
+            display: none;
+        }
+
+
+        input:focus~span,input:valid~span{
+            transform: translateY(-25px);
+            font-size: 15px;
+            color:rgba(241, 57, 112, 0.89);
+        }
+        input:focus{
+            border-bottom: 3px solid rgba(241, 57, 112, 0.89);
+        }
+        button svg,
+		button svg rect
+		{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			fill: transparent;
+		}
+        button svg rect
+		{
+			stroke: #00e2ff;
+			stroke-width: 4;
+			transition: 2s;
+			stroke-dasharray: 50 200;
+			stroke-dashoffset:320;
+		}
+
+		button:hover svg rect
+		{
+			stroke: #A03AFD;
+			stroke-dasharray: 200 50;
+			stroke-dashoffset: 0;
+		}
+    </style>
+    <script>
+        function validatedata(){
+            documnet.getElementById("btnmsg").style.display = "block";
+            let name = document.form.name.value;
+            let email = document.form.email.value;
+            var pattern=/^[a-zA-z0-9]{2,}[.]{0,1}[a-zA-z0-9]{1,}@[a-z]{2,}[.]{1}[a-z]{2,3}[.]{0,1}[a-z]{0,3}$/;
+            if(pattern.test(email) == false){
+                document.getElementById("email").style.borderBottomColor = "red";
+                document.getElementById("emaillabel").innerHTML = "Email not valid";
+                document.getElementById("emaillabel").style.color = "red";
+                return false;
+            }
+        }
+    </script>
+    <title>Contact</title>
+</head>
+<body>
+    <div class="container">
+        <div class="heading-cont">
+            <h1>Enter Details</h1>
+        </div>
+        <div class="form-cont">
+            <form name = "form"  action="/res" class="form-align" onsubmit="return validatedata()">
+                <div class="name-cont">
+                    <input type = "text" name="name" required="required">
+                    <span for="name" id="namelabel">Name</span>
+                </div>
+                <div class="email-cont">
+                    <input type = "text" name="email" required="required" id="email">
+                    <span for="email" id="emaillabel">Email</span>
+                </div>
+                <div class="btn-cont">
+                    <button type="submit"><svg><rect></rect></svg>Submit</button>
+                    <label id="btnmsg">Thanks for your interest. Please check your email</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

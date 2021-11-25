@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background:linear-gradient(to bottom,rgb(147, 13, 236),rgb(196, 22, 109))
+        }
+        .heading{
+            position: absolute;
+            top: 10px;
+        }
+        .heading h2{
+            font-size: 100px;
+            font-style: italic;
+            font-family: 'Henny Penny', cursive;
+            color: white;
+            animation: animate 3s linear infinite;
+        }
+        @keyframes animate{
+            0%,100%{
+                text-shadow: 4px 4px 10px rgb(4, 104, 253),
+            -4px -4px 5px rgb(4, 104, 253),
+            3px 3px 20px rgb(8, 198, 223),
+            -3px -3px 20px rgb(8, 198, 223),
+            6px 6px 30px rgb(112, 220, 235),
+            -6px -6px 30px rgb(112, 220, 235);
+
+            }
+            50%{
+                text-shadow: none;
+            }
+        }
+        .container{
+            position: relative;
+            width: 1150px;
+            display: flex;
+            flex-wrap: wrap;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            margin-top: 20px;
+        }
+        .container .box{
+            position: relative;
+            margin:3px 3px;
+            margin-top: 100px;
+            width: 275px;
+            height: 275px;
+            background: #000;
+            transition: 0.5s;
+            transform-style: preserve-3d;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 10px 10px 50px black;
+        }
+        .container:hover .box:nth-child(1){
+            transform:rotateY(25deg);
+            -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+        }
+        .container:hover .box:nth-child(2){
+            transform:rotateY(25deg);
+            -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+        }
+        .container:hover .box:nth-child(3){
+            transform:rotateY(25deg);
+            -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+        }
+        .container:hover .box:nth-child(4){
+            transform:rotateY(25deg);
+            -webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+        }
+        .container .box:hover ~ .box{
+            transform: rotateY(-25deg);
+        }
+        .container .box:nth-child(1):hover{
+            transform: rotateY(0deg) scale(1.25);
+            z-index: 1;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+        }
+        .container .box:nth-child(2):hover{
+            transform: rotateY(0deg) scale(1.25);
+            z-index: 1;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+        }
+        .container .box:nth-child(3):hover{
+            transform: rotateY(0deg) scale(1.25);
+            z-index: 1;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+        }
+        .container .box:nth-child(4):hover{
+            transform: rotateY(0deg) scale(1.25);
+            z-index: 1;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+        }
+        .container .box .imgBx{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .container .box .imgBx::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,rgb(17, 231, 213),rgb(8, 129, 209));
+            z-index: 1;
+            opacity: 0;
+            transition: 0.5s;
+            mix-blend-mode: multiply;
+        }
+        .container .box:hover .imgBx::before{
+            opacity: 1;
+        }
+        .container .box .imgBx img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .container .box .content{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            padding: 20px;
+            align-items: flex-end;
+            box-sizing: border-box;
+        }
+        .container .box .content h2{
+            color: #fff;
+            transition: 0.5s;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-size: 20px;
+            transform: translateY(300px);
+        }
+        .container .box:hover .content h2{
+            transform: translateY(0);
+            transition-delay: 0.3s;
+            }
+        .container .box .content p{
+            color: #fff;
+            transition: 0.4s;
+            font-size: 15px;
+            transform: translateY(300px);
+        }
+        .container .box:hover .content p{
+            transform: translateY(0);
+            transition-delay: 0.7s;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h2>Gallery</h2>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="imgBx">
+                <img src="1.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Lotus Temple</h2>
+                    <p>“If you feel lost, disappointed, hesitant, or weak, 
+                        return to yourself, to who you are, here and now and when you get there,
+                         you will discover yourself, like a lotus flower in full bloom, 
+                         even in a muddy pond, beautiful and strong.”</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBx">
+                <img src="2.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Charminar</h2>
+                    <p>The charm of charminar, The calm of hussain sagar lake.</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBx">
+                <img src="3.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Taj Mahal</h2>
+                    <p>“The Taj Mahal rises above the banks of the river 
+                        like a solitary tear suspended on the cheek of time.”</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBx">
+                <img src="4.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Humayuns Tomb</h2>
+                    <p>"Gives you a glimpse of history as enticing as Humayuns Tomb"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box">
+            <div class="imgBx">
+                <img src="5.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>India Gate</h2>
+                    <p>"Before you speak,
+                         let your words pass through three gates
+                         ; At the first gate, ask yourself, is is true? 
+                         At the second gate ask, is it necessary? At the third gate ask, is it kind?"" 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBx">
+                <img src="6.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Qutub Minar</h2>
+                    <p>"If given a chance, I would really want to explore the monuments in Delhi, 
+                        like Qutub Minar and the forts. I have been there as a child, but now I want to go back and understand the history and significance behind them. 
+                        We take all of these things for granted in life."</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBx">
+                <img src="7.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Sambhal Garh Fort</h2>
+                    <p>"Fortitude is the marshal of thought, the armor of the will, and the fort of reason."
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBx">
+                <img src="8.jpg">
+            </div>
+            <div class="content">
+                <div>
+                    <h2>Hampi Monuments</h2>
+                    <p>"There really is something magical about Hampi that I just can’t describe,
+                         there’s a good reason why this place is very much on the backpacker trail in India."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
